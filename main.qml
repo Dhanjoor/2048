@@ -4,6 +4,6 @@ import QtQuick.Window 2.12
 Window {
     visible: true
     width: 640
-    height: 480
+    height: 180
     title: qsTr("2048")
 }
