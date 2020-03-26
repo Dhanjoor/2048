@@ -7,12 +7,39 @@ Window {
     width: 610
     height: 610
     color: "#000000"
-    property alias rect6Color: rect6.color
-    property alias text5Text: text5.text
-    property alias rect5Color: rect5.color
-    property alias rect4Color: rect4.color
+    property alias text1Text: text1.text
     property alias text2Text: text2.text
     property alias text3Text: text3.text
+    property alias text4Text: text4.text
+    property alias text5Text: text5.text
+    property alias text6Text: text6.text
+    property alias text7Text: text7.text
+    property alias text8Text: text8.text
+    property alias text9Text: text9.text
+    property alias text10Text: text10.text
+    property alias text11Text: text11.text
+    property alias text12Text: text12.text
+    property alias text13Text: text13.text
+    property alias text14Text: text14.text
+    property alias text15Text: text15.text
+    property alias text16Text: text16.text
+    property alias rect1Color: rect1.color
+    property alias rect2Color: rect2.color
+    property alias rect3Color: rect3.color
+    property alias rect4Color: rect4.color
+    property alias rect5Color: rect5.color
+    property alias rect6Color: rect6.color
+    property alias rect7Color: rect7.color
+    property alias rect8Color: rect8.color
+    property alias rect9Color: rect9.color
+    property alias rect10Color: rect10.color
+    property alias rect11Color: rect11.color
+    property alias rect12Color: rect12.color
+    property alias rect13Color: rect13.color
+    property alias rect14Color: rect14.color
+    property alias rect15Color: rect15.color
+    property alias rect16Color: rect16.color
+
     title: qsTr("2048")
 
     Rectangle {
