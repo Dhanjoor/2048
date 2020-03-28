@@ -1,17 +1,33 @@
 #ifndef DAMIER_H
 #define DAMIER_H
 #include <iostream>
+#include <QObject>
 using namespace std;
 
-class damier
+class damier : public QObject
 {
+    Q_OBJECT
 public:
-    damier();
-    void Init(int value);
-    void Set(int x, int y, int value);
-    void Print();
+    explicit damier(QObject *parent = nullptr);
+    ~damier();
+
+    void alloc(int l, int c);
+    void free();
+
+    Q_INVOKABLE void init(int value);
+    Q_INVOKABLE void set(int x, int y, int value);
+    Q_PROPERTY(QString d1QML READ readDamier NOTIFY damierChanged)
+    QString readDamier();
+
+signals:
+    void damierChanged();
+
+public slots:
+
 private:
-    int D[4][4];
+    int L;
+    int C;
+    int** T;
 };
 
 #endif // DAMIER_H

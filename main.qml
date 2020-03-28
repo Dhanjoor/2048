@@ -54,10 +54,21 @@ Window {
 
         Text {
             id: text1
-            text: qsTr("")
+            focus: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 12
+            text: mondamier.d1QML  //mondamier=vueObjetcpt
+            Keys.onPressed: {
+                switch (event.key) {
+                    case Qt.Key_Up:
+                        mondamier.set(0,0,7);
+                        break;
+                    case Qt.Key_Down:
+                        mondamier.set(0,0,4);
+                        break;
+                }
+            }
         }
     }
 
