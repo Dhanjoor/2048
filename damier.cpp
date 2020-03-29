@@ -54,6 +54,7 @@ void damier::random(){
     }
     if (cpt!=0){
         int nbcase;
+        srand(time(NULL));
         nbcase=rand()%cpt;
         int parcours=0;
         int condition=0;
