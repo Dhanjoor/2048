@@ -61,14 +61,14 @@ Window {
             text: mondamier.damier1QML //mondamier=vueObjetcpt
             Keys.onPressed: {
                 switch (event.key) {
-                case Qt.Key_Left:
-                    mondamier.gotoleft();
-                    break;
+                    case Qt.Key_Left:
+                        mondamier.gotoleft();
+                        break;
                     case Qt.Key_Up:
-                        mondamier.set(0,0,7);
+                        mondamier.gotoup();
                         break;
                     case Qt.Key_Down:
-                        mondamier.set(1,1,9);
+                        mondamier.gotodown();
                         break;
                     case Qt.Key_Right:
                         mondamier.gotoright();

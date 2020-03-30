@@ -22,6 +22,8 @@ public:
     Q_INVOKABLE void random();
     Q_INVOKABLE void gotoleft();
     Q_INVOKABLE void gotoright();
+    Q_INVOKABLE void gotoup();
+    Q_INVOKABLE void gotodown();
 
     Q_PROPERTY(QString damier1QML READ readDamier1 NOTIFY damierChanged)
     QString readDamier1();
