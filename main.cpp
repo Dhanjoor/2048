@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     damier D;
+    D.random();
+    D.random();
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

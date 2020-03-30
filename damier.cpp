@@ -69,6 +69,36 @@ void damier::random(){
     damierChanged();
 }
 
+void damier::gotoleft(){
+    for (int i=0; i<4; i++){    //on navigue ligne par ligne
+        for (int j=3; j>0; j--){          //on navigue de droite à gauche dans la ligne
+            if (T[i][j-1]==0){                //si une case vide
+                for (int k=j-1; k<3;k++){
+                    set(i,k,T[i][k+1]);      //on décale toute la ligne vers la gauche
+                }
+                set(i,3,0);                   //puis on retrouve un zéro en fin de ligne
+            }
+        }
+        for (int j=0; j<3; j++){
+            if (T[i][j]==T[i][j+1]){     //si 2 cases égales cote à cote
+                set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
+                set(i,j+1,0);
+            }
+        }
+        for (int j=3; j>0; j--){
+            if (T[i][j-1]==0){                //puis on redécalle toutes
+                for (int k=j-1; k<3;k++){     //les cases vers la gauche
+                    set(i,k,T[i][k+1]);       //au cas où un trou
+                }                              //serait apparu
+                set(i,3,0);
+            }
+        }
+    }
+    //damierChanged();
+    random();    //enfin on fait réapparaitre un 2
+}
+
+
 QString damier::readDamier1(){
     return QString::number(T[0][0]);
 }
