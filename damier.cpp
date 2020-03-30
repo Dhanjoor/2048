@@ -69,47 +69,18 @@ void damier::random(){
     damierChanged();
 }
 
-void damier::gotoleft(){
-    for (int i=0; i<4; i++){    //on navigue ligne par ligne
-        for (int j=3; j>0; j--){          //on navigue de droite à gauche dans la ligne
-            if (T[i][j-1]==0){                //si une case vide
-                for (int k=j-1; k<3;k++){
-                    set(i,k,T[i][k+1]);      //on décale toute la ligne vers la gauche
-                }
-                set(i,3,0);                   //puis on retrouve un zéro en fin de ligne
-            }
-        }
-        for (int j=0; j<3; j++){
-            if (T[i][j]==T[i][j+1]){     //si 2 cases égales cote à cote
-                set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
-                set(i,j+1,0);
-            }
-        }
-        for (int j=3; j>0; j--){
-            if (T[i][j-1]==0){                //puis on redécalle toutes
-                for (int k=j-1; k<3;k++){     //les cases vers la gauche
-                    set(i,k,T[i][k+1]);       //au cas où un trou
-                }                              //serait apparu
-                set(i,3,0);
-            }
-        }
-    }
-    //damierChanged();
-    random();    //enfin on fait réapparaitre un 2
-}
-
 bool damier::possible_left(){
     bool flag=false;
     int i=0;
-    while (i<=4 and not flag){        // on test chaque ligne
-        for (int j=0; j==3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
+    while (i<4 and not(flag)){        // on test chaque ligne
+        for (int j=0; j<3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
             if (T[i][j]==0 and T[i][j+1]>0){            // 1: ligne possédant un vide avec une case remplie à sa droite
                 flag=true;
             }
         }
         if (not flag){        // 2: ligne ne possédant pas de vide suivie d'une case
-            for (int j=0; j==3; j++){
-                if (T[i][j]==T[i][j+1]){        // mais avec une possibilité de fusion
+            for (int j=0; j<3; j++){
+                if (T[i][j]==T[i][j+1] and T[i][j]!=0){        // mais avec une possibilité de fusion
                     flag=true;
                 }
             }
@@ -122,15 +93,15 @@ bool damier::possible_left(){
 bool damier::possible_right(){
     bool flag=false;
     int i=0;
-    while (i<=4 and not flag){        // on test chaque ligne
-        for (int j=0; j==3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
+    while (i<4 and not flag){        // on test chaque ligne
+        for (int j=0; j<3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
             if (T[i][j]>0 and T[i][j+1]==0){            // 1: ligne possédant un vide avec une case remplie à sa gauche
                 flag=true;
             }
         }
         if (not flag){        // 2: ligne ne possédant pas de vide suivie d'une case
-            for (int j=0; j==3; j++){
-                if (T[i][j]==T[i][j+1]){        // mais avec une possibilité de fusion
+            for (int j=0; j<3; j++){
+                if (T[i][j]==T[i][j+1] and T[i][j]!=0){        // mais avec une possibilité de fusion
                     flag=true;
                 }
             }
@@ -143,15 +114,15 @@ bool damier::possible_right(){
 bool damier::possible_up(){
     bool flag=false;
     int j=0;
-    while (j<=4 and not flag){        // on test chaque colonne
-        for (int i=0; i==3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
+    while (j<4 and not flag){        // on test chaque colonne
+        for (int i=0; i<3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
             if (T[i][j]==0 and T[i+1][j]>0){            // 1: colonne possédant un vide avec un case remplie en dessous
                 flag=true;
             }
         }
         if (not flag){        // 2: colonne ne possédant pas de vide suivie d'une case
-            for (int i=0; i==3; i++){
-                if (T[i][j]==T[i+1][j]){        // mais avec une possibilité de fusion
+            for (int i=0; i<3; i++){
+                if (T[i][j]==T[i+1][j] and T[i][j]!=0){        // mais avec une possibilité de fusion
                     flag=true;
                 }
             }
@@ -164,15 +135,15 @@ bool damier::possible_up(){
 bool damier::possible_down(){
     bool flag=false;
     int j=0;
-    while (j<=4 and not flag){        // on test chaque colonne
-        for (int i=0; i==3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
+    while (j<4 and not flag){        // on test chaque colonne
+        for (int i=0; i<3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
             if (T[i][j]>0 and T[i+1][j]==0){            // 1: colonne possédant un vide avec un case remplie au dessus
                 flag=true;
             }
         }
         if (not flag){        // 2: colonne ne possédant pas de vide suivie d'une case
-            for (int i=0; i==3; i++){
-                if (T[i][j]==T[i+1][j]){        // mais avec une possibilité de fusion
+            for (int i=0; i<3; i++){
+                if (T[i][j]==T[i+1][j] and T[i][j]!=0){        // mais avec une possibilité de fusion
                     flag=true;
                 }
             }
@@ -182,92 +153,130 @@ bool damier::possible_down(){
     return flag;
 }
 
-void damier::gotoright(){
-    for (int i=0; i<4; i++){    //on navigue ligne par ligne
-        for (int j=0; j<3; j++){          //on navigue de gauche à droite dans la ligne
-            if (T[i][j+1]==0){                //si une case vide
-                for (int k=j+1; k>0;k--){
-                    set(i,k,T[i][k-1]);      //on décale toute la ligne vers la droite
+void damier::gotoleft(){
+    if (possible_left()){
+        for (int i=0; i<4; i++){    //on navigue ligne par ligne
+            for (int j=3; j>0; j--){          //on navigue de droite à gauche dans la ligne
+                if (T[i][j-1]==0){                //si une case vide
+                    for (int k=j-1; k<3;k++){
+                        set(i,k,T[i][k+1]);      //on décale toute la ligne vers la gauche
+                    }
+                    set(i,3,0);                   //puis on retrouve un zéro en fin de ligne
                 }
-                set(i,0,0);                   //puis on retrouve un zéro en début de ligne
+            }
+            for (int j=0; j<3; j++){
+                if (T[i][j]==T[i][j+1]){     //si 2 cases égales cote à cote
+                    set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
+                    set(i,j+1,0);
+                }
+            }
+            for (int j=3; j>0; j--){
+                if (T[i][j-1]==0){                //puis on redécalle toutes
+                    for (int k=j-1; k<3;k++){     //les cases vers la gauche
+                        set(i,k,T[i][k+1]);       //au cas où un trou
+                    }                              //serait apparu
+                    set(i,3,0);
+                }
             }
         }
-        for (int j=3; j>0; j--){
-            if (T[i][j]==T[i][j-1]){     //si 2 cases égales cote à cote
-                set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
-                set(i,j-1,0);
-            }
-        }
-        for (int j=0; j<3; j++){
-            if (T[i][j+1]==0){                //puis on redécalle toutes
-                for (int k=j+1; k>0;k--){     //les cases vers la droite
-                    set(i,k,T[i][k-1]);       //au cas où un trou
-                }                              //serait apparu
-                set(i,0,0);
-            }
-        }
+        //damierChanged();
+        random();    //enfin on fait réapparaitre un 2
     }
-    //damierChanged();
-    random();    //enfin on fait réapparaitre un 2
+
+}
+
+void damier::gotoright(){
+    if (possible_right()){
+        for (int i=0; i<4; i++){    //on navigue ligne par ligne
+            for (int j=0; j<3; j++){          //on navigue de gauche à droite dans la ligne
+                if (T[i][j+1]==0){                //si une case vide
+                    for (int k=j+1; k>0;k--){
+                        set(i,k,T[i][k-1]);      //on décale toute la ligne vers la droite
+                    }
+                    set(i,0,0);                   //puis on retrouve un zéro en début de ligne
+                }
+            }
+            for (int j=3; j>0; j--){
+                if (T[i][j]==T[i][j-1]){     //si 2 cases égales cote à cote
+                    set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
+                    set(i,j-1,0);
+                }
+            }
+            for (int j=0; j<3; j++){
+                if (T[i][j+1]==0){                //puis on redécalle toutes
+                    for (int k=j+1; k>0;k--){     //les cases vers la droite
+                        set(i,k,T[i][k-1]);       //au cas où un trou
+                    }                              //serait apparu
+                    set(i,0,0);
+                }
+            }
+        }
+        //damierChanged();
+        random();    //enfin on fait réapparaitre un 2
+    }
 }
 
 
 void damier::gotoup(){
-    for (int j=0; j<4; j++){    //on navigue colonne par colonne
-        for (int i=3; i>0; i--){          //on navigue de bas en haut dans la colonne
-            if (T[i-1][j]==0){                //si une case vide
-                for (int k=i-1; k<3;k++){
-                    set(k,j,T[k+1][j]);      //on décale toute la ligne vers le haut
-                }
-                set(3,j,0);                   //puis on retrouve un zéro en fin de colonne
-            }
-        }
-        for (int i=0; i<3; i++){
-            if (T[i][j]==T[i+1][j]){     //si 2 cases égales cote à cote
-                set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
-                set(i+1,j,0);
-            }
-        }
-        for (int i=3; i>0; i--){
-            if (T[i-1][j]==0){                //puis on redécalle toutes
-                for (int k=i-1; k<3;k++){     //les cases vers le haut
-                    set(k,j,T[k+1][j]);       //au cas où un trou
-                }                              //serait apparu
-                set(3,j,0);
-            }
-        }
-    }
-    //damierChanged();
-    random();    //enfin on fait réapparaitre un 2
+   if (possible_up()){
+       for (int j=0; j<4; j++){    //on navigue colonne par colonne
+           for (int i=3; i>0; i--){          //on navigue de bas en haut dans la colonne
+               if (T[i-1][j]==0){                //si une case vide
+                   for (int k=i-1; k<3;k++){
+                       set(k,j,T[k+1][j]);      //on décale toute la ligne vers le haut
+                   }
+                   set(3,j,0);                   //puis on retrouve un zéro en fin de colonne
+               }
+           }
+           for (int i=0; i<3; i++){
+               if (T[i][j]==T[i+1][j]){     //si 2 cases égales cote à cote
+                   set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
+                   set(i+1,j,0);
+               }
+           }
+           for (int i=3; i>0; i--){
+               if (T[i-1][j]==0){                //puis on redécalle toutes
+                   for (int k=i-1; k<3;k++){     //les cases vers le haut
+                       set(k,j,T[k+1][j]);       //au cas où un trou
+                   }                              //serait apparu
+                   set(3,j,0);
+               }
+           }
+       }
+       //damierChanged();
+       random();    //enfin on fait réapparaitre un 2
+   }
 }
 
 void damier::gotodown(){
-    for (int j=0; j<4; j++){    //on navigue colonne par colonne
-        for (int i=0; i<3; i++){          //on navigue de haut en bas dans la colonne
-            if (T[i+1][j]==0){                //si une case vide
-                for (int k=i+1; k>0;k--){
-                    set(k,j,T[k-1][j]);      //on décale toute la ligne vers le bas
+    if (possible_down()){
+        for (int j=0; j<4; j++){    //on navigue colonne par colonne
+            for (int i=0; i<3; i++){          //on navigue de haut en bas dans la colonne
+                if (T[i+1][j]==0){                //si une case vide
+                    for (int k=i+1; k>0;k--){
+                        set(k,j,T[k-1][j]);      //on décale toute la ligne vers le bas
+                    }
+                    set(0,j,0);                   //puis on retrouve un zéro en début de colonne
                 }
-                set(0,j,0);                   //puis on retrouve un zéro en début de colonne
+            }
+            for (int i=3; i>0; i--){
+                if (T[i][j]==T[i-1][j]){     //si 2 cases égales cote à cote
+                    set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
+                    set(i-1,j,0);
+                }
+            }
+            for (int i=0; i<3; i++){
+                if (T[i+1][j]==0){                //puis on redécalle toutes
+                    for (int k=i+1; k>0;k--){     //les cases vers le bas
+                        set(k,j,T[k-1][j]);       //au cas où un trou
+                    }                              //serait apparu
+                    set(0,j,0);
+                }
             }
         }
-        for (int i=3; i>0; i--){
-            if (T[i][j]==T[i-1][j]){     //si 2 cases égales cote à cote
-                set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
-                set(i-1,j,0);
-            }
-        }
-        for (int i=0; i<3; i++){
-            if (T[i+1][j]==0){                //puis on redécalle toutes
-                for (int k=i+1; k>0;k--){     //les cases vers le bas
-                    set(k,j,T[k-1][j]);       //au cas où un trou
-                }                              //serait apparu
-                set(0,j,0);
-            }
-        }
+        //damierChanged();
+        random();    //enfin on fait réapparaitre un 2
     }
-    //damierChanged();
-    random();    //enfin on fait réapparaitre un 2
 }
 
 QString damier::readDamier1(){
