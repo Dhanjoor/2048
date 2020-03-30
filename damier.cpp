@@ -98,6 +98,89 @@ void damier::gotoleft(){
     random();    //enfin on fait réapparaitre un 2
 }
 
+bool damier::possible_left(){
+    bool flag=false;
+    int i=0;
+    while (i<=4 and not flag){        // on test chaque ligne
+        for (int j=0; j==3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
+            if (T[i][j]==0 and T[i][j+1]>0){            // 1: ligne possédant un vide avec une case remplie à sa droite
+                flag=true;
+            }
+        }
+        if (not flag){        // 2: ligne ne possédant pas de vide suivie d'une case
+            for (int j=0; j==3; j++){
+                if (T[i][j]==T[i][j+1]){        // mais avec une possibilité de fusion
+                    flag=true;
+                }
+            }
+        }
+        i+=1;
+    }
+    return flag;
+}
+
+bool damier::possible_right(){
+    bool flag=false;
+    int i=0;
+    while (i<=4 and not flag){        // on test chaque ligne
+        for (int j=0; j==3; j++){       // on verifie qu'une des ligne peut permettre un mouvement:
+            if (T[i][j]>0 and T[i][j+1]==0){            // 1: ligne possédant un vide avec une case remplie à sa gauche
+                flag=true;
+            }
+        }
+        if (not flag){        // 2: ligne ne possédant pas de vide suivie d'une case
+            for (int j=0; j==3; j++){
+                if (T[i][j]==T[i][j+1]){        // mais avec une possibilité de fusion
+                    flag=true;
+                }
+            }
+        }
+        i+=1;
+    }
+    return flag;
+}
+
+bool damier::possible_up(){
+    bool flag=false;
+    int j=0;
+    while (j<=4 and not flag){        // on test chaque colonne
+        for (int i=0; i==3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
+            if (T[i][j]==0 and T[i+1][j]>0){            // 1: colonne possédant un vide avec un case remplie en dessous
+                flag=true;
+            }
+        }
+        if (not flag){        // 2: colonne ne possédant pas de vide suivie d'une case
+            for (int i=0; i==3; i++){
+                if (T[i][j]==T[i+1][j]){        // mais avec une possibilité de fusion
+                    flag=true;
+                }
+            }
+        }
+        j+=1;
+    }
+    return flag;
+}
+
+bool damier::possible_down(){
+    bool flag=false;
+    int j=0;
+    while (j<=4 and not flag){        // on test chaque colonne
+        for (int i=0; i==3; i++){       // on verifie qu'une des colonnes peut permettre un mouvement:
+            if (T[i][j]>0 and T[i+1][j]==0){            // 1: colonne possédant un vide avec un case remplie au dessus
+                flag=true;
+            }
+        }
+        if (not flag){        // 2: colonne ne possédant pas de vide suivie d'une case
+            for (int i=0; i==3; i++){
+                if (T[i][j]==T[i+1][j]){        // mais avec une possibilité de fusion
+                    flag=true;
+                }
+            }
+        }
+        j+=1;
+    }
+    return flag;
+}
 
 void damier::gotoright(){
     for (int i=0; i<4; i++){    //on navigue ligne par ligne
