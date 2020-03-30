@@ -16,6 +16,10 @@ public:
 
     void alloc(int l, int c);
     void free();
+    bool possible_left();
+    bool possible_right();
+    bool possible_up();
+    bool possible_down();
 
     Q_INVOKABLE void init(int value);
     Q_INVOKABLE void set(int x, int y, int value);
