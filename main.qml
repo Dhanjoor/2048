@@ -39,7 +39,6 @@ Window {
     property alias rect14Color: rect14.color
     property alias rect15Color: rect15.color
     property alias rect16Color: rect16.color
-
     title: qsTr("2048")
 
     Rectangle {
