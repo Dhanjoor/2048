@@ -57,7 +57,7 @@ Window {
             focus: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            font.pixelSize: 12
+            font.pixelSize: 22
             text: mondamier.damier1QML //mondamier=vueObjetcpt
             Keys.onPressed: {
                 switch (event.key) {
@@ -71,7 +71,7 @@ Window {
                         mondamier.set(1,1,9);
                         break;
                     case Qt.Key_Right:
-                        mondamier.random();
+                        mondamier.gotoright();
                         break;
                 }
             }
@@ -91,7 +91,7 @@ Window {
         Text {
             id: text2
             text: mondamier.damier2QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -111,7 +111,7 @@ Window {
         Text {
             id: text3
             text: mondamier.damier3QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -131,7 +131,7 @@ Window {
         Text {
             id: text4
             text: mondamier.damier4QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -151,7 +151,7 @@ Window {
         Text {
             id: text5
             text: mondamier.damier5QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -171,7 +171,7 @@ Window {
         Text {
             id: text6
             text: mondamier.damier6QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -191,7 +191,7 @@ Window {
         Text {
             id: text7
             text: mondamier.damier7QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -211,7 +211,7 @@ Window {
         Text {
             id: text8
             text: mondamier.damier8QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -231,7 +231,7 @@ Window {
         Text {
             id: text9
             text: mondamier.damier9QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -251,7 +251,7 @@ Window {
         Text {
             id: text10
             text: mondamier.damier10QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -271,7 +271,7 @@ Window {
         Text {
             id: text11
             text:mondamier.damier11QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -291,7 +291,7 @@ Window {
         Text {
             id: text12
             text: mondamier.damier12QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -311,7 +311,7 @@ Window {
         Text {
             id: text13
             text: mondamier.damier13QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -331,7 +331,7 @@ Window {
         Text {
             id: text14
             text: mondamier.damier14QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -351,7 +351,7 @@ Window {
         Text {
             id: text15
             text: mondamier.damier15QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -371,7 +371,7 @@ Window {
         Text {
             id: text16
             text: mondamier.damier16QML
-            font.pixelSize: 12
+            font.pixelSize: 22
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
