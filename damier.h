@@ -29,6 +29,7 @@ public:
     Q_INVOKABLE void gotoright();
     Q_INVOKABLE void gotoup();
     Q_INVOKABLE void gotodown();
+    Q_INVOKABLE void nouvellepartie();
 
     Q_PROPERTY(QString damier1QML READ readDamier1 NOTIFY damierChanged)
     QString readDamier1();
@@ -64,6 +65,7 @@ public:
     QString readDamier16();
     Q_PROPERTY(QString scoreQML READ readScore NOTIFY damierChanged)
     QString readScore();
+
 
 signals:
     void damierChanged();

@@ -288,6 +288,13 @@ void damier::gotodown(){
     }
 }
 
+void damier::nouvellepartie(){
+    init(0);
+    score = 0;
+    random();
+    random();
+}
+
 QString damier::readDamier1(){
     if (T[0][0]==0){
         return " ";
@@ -421,3 +428,4 @@ QString damier::readDamier16(){
 QString damier::readScore(){
     return QString::number(score);
 }
+

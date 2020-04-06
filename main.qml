@@ -410,4 +410,40 @@ Window {
             font.pixelSize: 25
         }
     }
+
+    Rectangle {
+        id: nouvelle_partie
+        width: 180
+        height: 80
+        color: "#ffffff"
+        radius: 18
+        focus: true
+        anchors.top: parent.top
+        anchors.topMargin: 220
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+
+        Text {
+            id: new_partie
+            text: qsTr("Nouvelle Partie")
+            font.family: "Tahoma"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 23
+        }
+
+        MouseArea {
+            id: mouseArea
+            width: 180
+            height: 80
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            acceptedButtons: Qt.LeftButton
+            onClicked: {
+                if (mouse.button == Qt.LeftButton){
+                    mondamier.nouvellepartie();
+                }
+            }
+        }
+    }
 }
