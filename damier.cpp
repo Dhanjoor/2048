@@ -30,6 +30,12 @@ void damier::alloc(int l, int c){
     T = new int*[L];
     for(int i=0; i<L; i++)
         T[i] = new int[C];
+    string *col;
+    col = new string[15];
+    col[0]= "#000000";
+    col[1]= "#aaaaaa";
+    col[2]= "#bbbbbb";
+    col[3]= "#ffffff";
 }
 
 void damier::init(int value){
@@ -294,6 +300,26 @@ void damier::gotodown(){
     }
 }
 
+string damier::color(int v){
+    if (v==2) return "#94d8db";
+    if (v==4) return "#00B3BB";
+    if (v==8) return "#00BB63";
+    if (v==16) return "#6ADE28";
+    if (v==32) return "#BBE61C";
+    if (v==64) return "#ecf613";
+    if (v==128) return "#f6bc13";
+    if (v==256) return "#e37814";
+    if (v==512) return "#d82700";
+    if (v==1024) return "#d80058";
+    if (v==2048) return "#d800c1";
+    if (v==4096) return "#7300d8";
+    if (v==8192) return "#5200d8";
+    if (v==16384) return "#2100d8";
+    if (v==65536) return "#020097";
+    if (v==131072) return "#36384b";
+    else return "#c4c4c4";              //cas valeur=0 et erreurs éventuelles
+}
+
 void damier::nouvellepartie(){
     init(0);
     score = 0;
@@ -442,6 +468,55 @@ QString damier::readDamier16(){
 
 QString damier::readScore(){
     return QString::number(score);
+}
+
+QString damier::readDamier1col(){
+    return QString::fromStdString(color(T[0][0]));
+}
+QString damier::readDamier2col(){
+    return QString::fromStdString(color(T[0][1]));
+}
+QString damier::readDamier3col(){
+    return QString::fromStdString(color(T[0][2]));
+}
+QString damier::readDamier4col(){
+    return QString::fromStdString(color(T[0][3]));
+}
+QString damier::readDamier5col(){
+    return QString::fromStdString(color(T[1][0]));
+}
+QString damier::readDamier6col(){
+    return QString::fromStdString(color(T[1][1]));
+}
+QString damier::readDamier7col(){
+    return QString::fromStdString(color(T[1][2]));
+}
+QString damier::readDamier8col(){
+    return QString::fromStdString(color(T[1][3]));
+}
+QString damier::readDamier9col(){
+    return QString::fromStdString(color(T[2][0]));
+}
+QString damier::readDamier10col(){
+    return QString::fromStdString(color(T[2][1]));
+}
+QString damier::readDamier11col(){
+    return QString::fromStdString(color(T[2][2]));
+}
+QString damier::readDamier12col(){
+    return QString::fromStdString(color(T[2][3]));
+}
+QString damier::readDamier13col(){
+    return QString::fromStdString(color(T[3][0]));
+}
+QString damier::readDamier14col(){
+    return QString::fromStdString(color(T[3][1]));
+}
+QString damier::readDamier15col(){
+    return QString::fromStdString(color(T[3][2]));
+}
+QString damier::readDamier16col(){
+    return QString::fromStdString(color(T[3][3]));
 }
 
 QString damier::readResultat(){

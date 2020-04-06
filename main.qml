@@ -48,7 +48,7 @@ Window {
         id: rect1
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier1colQML
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -63,18 +63,18 @@ Window {
             text: mondamier.damier1QML //mondamier=vueObjetcpt
             Keys.onPressed: {
                 switch (event.key) {
-                case Qt.Key_Left:
-                    mondamier.gotoleft();
-                    break;
-                case Qt.Key_Up:
-                    mondamier.gotoup();
-                    break;
-                case Qt.Key_Down:
-                    mondamier.gotodown();
-                    break;
-                case Qt.Key_Right:
-                    mondamier.gotoright();
-                    break;
+                    case Qt.Key_Left:
+                        mondamier.gotoleft();
+                        break;
+                    case Qt.Key_Up:
+                        mondamier.gotoup();
+                        break;
+                    case Qt.Key_Down:
+                        mondamier.gotodown();
+                        break;
+                    case Qt.Key_Right:
+                        mondamier.gotoright();
+                        break;
                 }
             }
         }
@@ -86,7 +86,7 @@ Window {
         y: -8
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier2colQML
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -106,7 +106,7 @@ Window {
         y: 7
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier3colQML
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -126,7 +126,7 @@ Window {
         y: -2
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier4colQML
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -146,7 +146,7 @@ Window {
         y: 4
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier5colQML
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -166,7 +166,7 @@ Window {
         y: 1
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier6colQML
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -186,7 +186,7 @@ Window {
         y: 6
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier7colQML
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -206,7 +206,7 @@ Window {
         y: 0
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier8colQML
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -226,7 +226,7 @@ Window {
         y: 9
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier9colQML
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -246,7 +246,7 @@ Window {
         y: 9
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier10colQML
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -266,7 +266,7 @@ Window {
         y: -1
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier11colQML
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -286,7 +286,7 @@ Window {
         y: 3
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier12colQML
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -306,7 +306,7 @@ Window {
         y: 9
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier13colQML
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -326,7 +326,7 @@ Window {
         y: 7
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier14colQML
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -346,7 +346,7 @@ Window {
         y: -4
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier15colQML
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -366,7 +366,7 @@ Window {
         y: -1
         width: 140
         height: 140
-        color: "#c4c4c4"
+        color: mondamier.damier16colQML
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
