@@ -26,6 +26,7 @@ void damier::free(){
 void damier::alloc(int l, int c){
     L = l;
     C = c;
+    score = 0;
     T = new int*[L];
     for(int i=0; i<L; i++)
         T[i] = new int[C];
@@ -153,6 +154,10 @@ bool damier::possible_down(){
     return flag;
 }
 
+bool damier::possible_jouer(){                   //test si il reste au moins une possibilité pour jouer
+    return (possible_up() or possible_down() or possible_left() or possible_right());
+}
+
 void damier::gotoleft(){
     if (possible_left()){
         for (int i=0; i<4; i++){    //on navigue ligne par ligne
@@ -168,6 +173,7 @@ void damier::gotoleft(){
                 if (T[i][j]==T[i][j+1]){     //si 2 cases égales cote à cote
                     set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
                     set(i,j+1,0);
+                    score = score + T[i][j];
                 }
             }
             for (int j=3; j>0; j--){
@@ -200,6 +206,7 @@ void damier::gotoright(){
                 if (T[i][j]==T[i][j-1]){     //si 2 cases égales cote à cote
                     set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
                     set(i,j-1,0);
+                    score = score + T[i][j];
                 }
             }
             for (int j=0; j<3; j++){
@@ -232,6 +239,7 @@ void damier::gotoup(){
                if (T[i][j]==T[i+1][j]){     //si 2 cases égales cote à cote
                    set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
                    set(i+1,j,0);
+                   score = score + T[i][j];
                }
            }
            for (int i=3; i>0; i--){
@@ -263,6 +271,7 @@ void damier::gotodown(){
                 if (T[i][j]==T[i-1][j]){     //si 2 cases égales cote à cote
                     set(i,j,2*T[i][j]);      //on "fusionne" les deux cases
                     set(i-1,j,0);
+                    score = score + T[i][j];
                 }
             }
             for (int i=0; i<3; i++){
@@ -327,4 +336,8 @@ QString damier::readDamier15(){
 }
 QString damier::readDamier16(){
     return QString::number(T[3][3]);
+}
+
+QString damier::readScore(){
+    return QString::number(score);
 }

@@ -20,6 +20,7 @@ public:
     bool possible_right();
     bool possible_up();
     bool possible_down();
+    bool possible_jouer();
 
     Q_INVOKABLE void init(int value);
     Q_INVOKABLE void set(int x, int y, int value);
@@ -61,6 +62,8 @@ public:
     QString readDamier15();
     Q_PROPERTY(QString damier16QML READ readDamier16 NOTIFY damierChanged)
     QString readDamier16();
+    Q_PROPERTY(QString scoreQML READ readScore NOTIFY damierChanged)
+    QString readScore();
 
 signals:
     void damierChanged();
@@ -71,6 +74,7 @@ private:
     int L;
     int C;
     int** T;
+    int score;
 };
 
 #endif // DAMIER_H

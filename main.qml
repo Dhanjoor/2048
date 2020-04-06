@@ -4,9 +4,10 @@ import QtQuick.Window 2.12
 Window {
     id: window
     visible: true
-    width: 610
+    width: 810
     height: 610
     color: "#000000"
+    property alias score2Text: score2.text
     property alias text1Text: text1.text
     property alias text2Text: text2.text
     property alias text3Text: text3.text
@@ -375,5 +376,38 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
         }
         anchors.topMargin: 460
+    }
+
+    Rectangle {
+        id: score
+        width: 180
+        height: 180
+        color: "#ffffff"
+        radius: 30
+        border.width: 1
+        anchors.top: parent.top
+        anchors.topMargin: 10
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+
+        Text {
+            id: score1
+            text: qsTr("Score :")
+            anchors.top: parent.top
+            anchors.topMargin: 25
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 25
+        }
+
+        Text {
+            id: score2
+            text: mondamier.scoreQML
+            anchors.top: parent.top
+            anchors.topMargin: 90
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 25
+        }
     }
 }
