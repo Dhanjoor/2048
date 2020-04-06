@@ -44,7 +44,7 @@ void damier::set(int x, int y, int value) {
     damierChanged();
 }
 
-void damier::random(){
+void damier::random(){        //rajoute un 2 ou un 4 sur une case vide
     int cpt=0;
     for (int i=0; i<L; i++){
         for (int j=0; j<C; j++){
@@ -65,7 +65,13 @@ void damier::random(){
             }
             parcours++;
         }
-        set(parcours/4, parcours%4, 2);
+        cpt=rand()%5;
+        if (cpt<4){
+            set(parcours/4, parcours%4, 2);
+        }
+        else {
+            set(parcours/4, parcours%4, 4);
+        }
     }
     damierChanged();
 }
