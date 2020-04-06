@@ -289,53 +289,133 @@ void damier::gotodown(){
 }
 
 QString damier::readDamier1(){
-    return QString::number(T[0][0]);
+    if (T[0][0]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[0][0]);
+    }
 }
 
 QString damier::readDamier2(){
-    return QString::number(T[0][1]);
+    if (T[0][1]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[0][1]);
+    }
 }
 QString damier::readDamier3(){
-    return QString::number(T[0][2]);
+    if (T[0][2]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[0][2]);
+    }
 }
 QString damier::readDamier4(){
-    return QString::number(T[0][3]);
+    if (T[0][3]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[0][3]);
+    }
 }
 QString damier::readDamier5(){
-    return QString::number(T[1][0]);
+    if (T[1][0]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[1][0]);
+    }
 }
 QString damier::readDamier6(){
-    return QString::number(T[1][1]);
+    if (T[1][1]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[1][1]);
+    }
 }
 QString damier::readDamier7(){
-    return QString::number(T[1][2]);
+    if (T[1][2]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[1][2]);
+    }
 }
 QString damier::readDamier8(){
-    return QString::number(T[1][3]);
+    if (T[1][3]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[1][3]);
+    }
 }
 QString damier::readDamier9(){
-    return QString::number(T[2][0]);
+    if (T[2][0]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[2][0]);
+    }
 }
 QString damier::readDamier10(){
-    return QString::number(T[2][1]);
+    if (T[2][1]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[2][1]);
+    }
 }
 QString damier::readDamier11(){
-    return QString::number(T[2][2]);
+    if (T[2][2]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[2][2]);
+    }
 }
 QString damier::readDamier12(){
-    return QString::number(T[2][3]);
+    if (T[2][3]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[2][3]);
+    }
 }
 QString damier::readDamier13(){
-    return QString::number(T[3][0]);
+    if (T[3][0]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[3][0]);
+    }
 }
 QString damier::readDamier14(){
-    return QString::number(T[3][1]);
+    if (T[3][1]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[3][1]);
+    }
 }
 QString damier::readDamier15(){
-    return QString::number(T[3][2]);
+    if (T[3][2]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[3][2]);
+    }
 }
 QString damier::readDamier16(){
-    return QString::number(T[3][3]);
+    if (T[3][3]==0){
+        return " ";
+    }
+    else {
+        return QString::number(T[3][3]);
+    }
 }
 
 QString damier::readScore(){
