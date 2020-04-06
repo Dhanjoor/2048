@@ -295,6 +295,15 @@ void damier::nouvellepartie(){
     random();
 }
 
+int damier::readFinDePartie(){
+    if (possible_jouer()){
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
 QString damier::readDamier1(){
     if (T[0][0]==0){
         return " ";
@@ -429,3 +438,20 @@ QString damier::readScore(){
     return QString::number(score);
 }
 
+QString damier::readResultat(){
+    if (score<5000){
+        return "Dommage...";
+    }
+    if (score>=5000 && score<1000){
+        return "Pas mal";
+    }
+    if (score>=10000 && score<20000){
+        return "Bien joué !";
+    }
+    if (score>=20000 && score <50000){
+        return "Félicitations !!!";
+    }
+    else {
+        return "Exceptionnel !!!!!";
+    }
+}

@@ -7,6 +7,8 @@ Window {
     width: 810
     height: 610
     color: "#000000"
+    property alias score_finalText: score_final.text
+    property alias elementText: phrase_accroche.text
     property alias score2Text: score2.text
     property alias text1Text: text1.text
     property alias text2Text: text2.text
@@ -61,18 +63,18 @@ Window {
             text: mondamier.damier1QML //mondamier=vueObjetcpt
             Keys.onPressed: {
                 switch (event.key) {
-                    case Qt.Key_Left:
-                        mondamier.gotoleft();
-                        break;
-                    case Qt.Key_Up:
-                        mondamier.gotoup();
-                        break;
-                    case Qt.Key_Down:
-                        mondamier.gotodown();
-                        break;
-                    case Qt.Key_Right:
-                        mondamier.gotoright();
-                        break;
+                case Qt.Key_Left:
+                    mondamier.gotoleft();
+                    break;
+                case Qt.Key_Up:
+                    mondamier.gotoup();
+                    break;
+                case Qt.Key_Down:
+                    mondamier.gotodown();
+                    break;
+                case Qt.Key_Right:
+                    mondamier.gotoright();
+                    break;
                 }
             }
         }
@@ -442,6 +444,88 @@ Window {
             onClicked: {
                 if (mouse.button == Qt.LeftButton){
                     mondamier.nouvellepartie();
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        id: fin_de_partie
+        width: 680
+        height: 480
+        color: "#d48ee4"
+        radius: 80
+        opacity: mondamier.opacityQML
+        border.color: "#4a0168"
+        border.width: 18
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
+        Text {
+            id: phrase_accroche
+            text: mondamier.resultatQML
+            font.family: "Tahoma"
+            anchors.top: parent.top
+            anchors.topMargin: 80
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 55
+        }
+
+        Text {
+            id: ton_score
+            text: qsTr("Ton score est de : ")
+            anchors.top: parent.top
+            anchors.topMargin: 150
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 55
+        }
+
+        Text {
+            id: score_final
+            text: mondamier.scoreQML
+            anchors.top: parent.top
+            anchors.topMargin: 220
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 55
+        }
+
+        Rectangle {
+            id: rect_recommencer
+            x: 60
+            y: 285
+            width: 560
+            height: 140
+            color: "#cf7878"
+            radius: 36
+            anchors.top: parent.top
+            anchors.topMargin: 300
+            anchors.horizontalCenter: parent.horizontalCenter
+            border.width: 0
+
+            Text {
+                id: recommencer
+                text: qsTr("Recommencer")
+                font.family: "Tahoma"
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 55
+            }
+
+            MouseArea {
+                id: mouseArea1
+                x: 0
+                y: -125
+                width: 560
+                height: 140
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                acceptedButtons: Qt.LeftButton
+                onClicked: {
+                    if (mouse.button == Qt.LeftButton && (mondamier.possible_jouer()===false)){
+                        mondamier.nouvellepartie();
+                    }
                 }
             }
         }

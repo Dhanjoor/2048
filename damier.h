@@ -20,7 +20,6 @@ public:
     bool possible_right();
     bool possible_up();
     bool possible_down();
-    bool possible_jouer();
 
     Q_INVOKABLE void init(int value);
     Q_INVOKABLE void set(int x, int y, int value);
@@ -30,6 +29,7 @@ public:
     Q_INVOKABLE void gotoup();
     Q_INVOKABLE void gotodown();
     Q_INVOKABLE void nouvellepartie();
+    Q_INVOKABLE bool possible_jouer();
 
     Q_PROPERTY(QString damier1QML READ readDamier1 NOTIFY damierChanged)
     QString readDamier1();
@@ -65,6 +65,10 @@ public:
     QString readDamier16();
     Q_PROPERTY(QString scoreQML READ readScore NOTIFY damierChanged)
     QString readScore();
+    Q_PROPERTY(int opacityQML READ readFinDePartie NOTIFY damierChanged)
+    int readFinDePartie();
+    Q_PROPERTY(QString resultatQML READ readResultat NOTIFY damierChanged)
+    QString readResultat();
 
 
 signals:
