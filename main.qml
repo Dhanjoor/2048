@@ -49,6 +49,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier1colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -87,6 +88,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier2colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -107,6 +109,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier3colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -127,6 +130,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier4colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -147,6 +151,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier5colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -167,6 +172,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier6colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -187,6 +193,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier7colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -207,6 +214,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier8colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -227,6 +235,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier9colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -247,6 +256,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier10colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -267,6 +277,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier11colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -287,6 +298,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier12colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -307,6 +319,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier13colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
@@ -327,6 +340,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier14colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 160
         anchors.top: parent.top
@@ -347,6 +361,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier15colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 310
         anchors.top: parent.top
@@ -367,6 +382,7 @@ Window {
         width: 140
         height: 140
         color: mondamier.damier16colQML
+        radius: 10
         anchors.left: parent.left
         anchors.leftMargin: 460
         anchors.top: parent.top
@@ -382,21 +398,23 @@ Window {
 
     Rectangle {
         id: score
+        x: 614
         width: 180
-        height: 180
+        height: 140
         color: "#ffffff"
         radius: 30
         border.width: 1
         anchors.top: parent.top
         anchors.topMargin: 10
         anchors.right: parent.right
-        anchors.rightMargin: 10
+        anchors.rightMargin: 16
 
         Text {
             id: score1
             text: qsTr("Score :")
+            anchors.horizontalCenterOffset: 1
             anchors.top: parent.top
-            anchors.topMargin: 25
+            anchors.topMargin: 17
             anchors.horizontalCenter: parent.horizontalCenter
             font.family: "Tahoma"
             font.pixelSize: 25
@@ -405,8 +423,45 @@ Window {
         Text {
             id: score2
             text: mondamier.scoreQML
+            anchors.horizontalCenterOffset: 1
             anchors.top: parent.top
-            anchors.topMargin: 90
+            anchors.topMargin: 79
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 25
+        }
+    }
+
+    Rectangle {
+        id: tour
+        x: 614
+        width: 180
+        height: 140
+        color: "#ffffff"
+        radius: 30
+        border.width: 1
+        anchors.top: parent.top
+        anchors.topMargin: 160
+        anchors.right: parent.right
+        anchors.rightMargin: 16
+
+        Text {
+            id: tour1
+            text: qsTr("Tour :")
+            anchors.horizontalCenterOffset: 1
+            anchors.top: parent.top
+            anchors.topMargin: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Tahoma"
+            font.pixelSize: 25
+        }
+
+        Text {
+            id: tour2
+            text: mondamier.tourQML
+            anchors.horizontalCenterOffset: 1
+            anchors.top: parent.top
+            anchors.topMargin: 82
             anchors.horizontalCenter: parent.horizontalCenter
             font.family: "Tahoma"
             font.pixelSize: 25
@@ -415,15 +470,16 @@ Window {
 
     Rectangle {
         id: nouvelle_partie
+        x: 614
         width: 180
         height: 80
         color: "#ffffff"
         radius: 18
         focus: true
         anchors.top: parent.top
-        anchors.topMargin: 220
+        anchors.topMargin: 490
         anchors.right: parent.right
-        anchors.rightMargin: 10
+        anchors.rightMargin: 16
 
         Text {
             id: new_partie
@@ -438,12 +494,53 @@ Window {
             id: mouseArea
             width: 180
             height: 80
+            anchors.verticalCenterOffset: 0
+            anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             acceptedButtons: Qt.LeftButton
             onClicked: {
                 if (mouse.button == Qt.LeftButton){
                     mondamier.nouvellepartie();
+                }
+            }
+        }
+    }
+
+    Rectangle {
+        id: annuler
+        x: 614
+        width: 180
+        height: 80
+        color: "#ffffff"
+        radius: 18
+        focus: true
+        anchors.top: parent.top
+        anchors.topMargin: 340
+        anchors.right: parent.right
+        anchors.rightMargin: 16
+
+        Text {
+            id: annuler_txt
+            text: qsTr("Annuler")
+            font.family: "Tahoma"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 23
+        }
+
+        MouseArea {
+            id: mouseArea2
+            width: 180
+            height: 80
+            anchors.verticalCenterOffset: 0
+            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            acceptedButtons: Qt.LeftButton
+            onClicked: {
+                if (mouse.button == Qt.LeftButton){
+                    mondamier.annule();
                 }
             }
         }
@@ -531,3 +628,9 @@ Window {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:42;invisible:true}
+}
+##^##*/

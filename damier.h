@@ -21,6 +21,7 @@ public:
     bool possible_up();
     bool possible_down();
     string color(int v);
+    void sauve();
 
     Q_INVOKABLE void init(int value);
     Q_INVOKABLE void set(int x, int y, int value);
@@ -31,6 +32,7 @@ public:
     Q_INVOKABLE void gotodown();
     Q_INVOKABLE void nouvellepartie();
     Q_INVOKABLE bool possible_jouer();
+    Q_INVOKABLE void annule();
 
     Q_PROPERTY(QString damier1QML READ readDamier1 NOTIFY damierChanged)
     QString readDamier1();
@@ -66,6 +68,8 @@ public:
     QString readDamier16();
     Q_PROPERTY(QString scoreQML READ readScore NOTIFY damierChanged)
     QString readScore();
+    Q_PROPERTY(QString tourQML READ readTour NOTIFY damierChanged)
+    QString readTour();
     Q_PROPERTY(QString damier1colQML READ readDamier1col NOTIFY damierChanged)
     QString readDamier1col();
     Q_PROPERTY(QString damier2colQML READ readDamier2col NOTIFY damierChanged)
@@ -113,6 +117,8 @@ private:
     int C;
     int** T;
     int score;
+    int n;              // n représente le nombre de tour pour situer dans la mémoire
+    int** mem;
 };
 
 #endif // DAMIER_H

@@ -27,15 +27,11 @@ void damier::alloc(int l, int c){
     L = l;
     C = c;
     score = 0;
+    n=0;
     T = new int*[L];
     for(int i=0; i<L; i++)
         T[i] = new int[C];
-    string *col;
-    col = new string[15];
-    col[0]= "#000000";
-    col[1]= "#aaaaaa";
-    col[2]= "#bbbbbb";
-    col[3]= "#ffffff";
+    mem = new int*[1000];
 }
 
 void damier::init(int value){
@@ -48,6 +44,25 @@ void damier::init(int value){
 void damier::set(int x, int y, int value) {
     T[x][y]=value;
     damierChanged();
+}
+
+void damier::sauve(){
+    mem[n]=new int [17];
+    for (int i=0; i<16; i++)
+        mem[n][i]=T[i%4][i/4];
+    mem[n][17]=score;
+}
+
+void damier::annule(){
+    if (n>0){
+        n-=1;
+        score=0;
+        for (int i=0; i<16; i++){
+            T[i%4][i/4]=mem[n][i];
+        }
+    score=mem[n][17];
+    damierChanged();
+    }
 }
 
 void damier::random(){        //rajoute un 2 ou un 4 sur une case vide
@@ -71,15 +86,14 @@ void damier::random(){        //rajoute un 2 ou un 4 sur une case vide
             }
             parcours++;
         }
-        cpt=rand()%5;
-        if (cpt<4){
+        cpt=rand()%10;
+        if (cpt<9){
             set(parcours/4, parcours%4, 2);
         }
         else {
             set(parcours/4, parcours%4, 4);
         }
     }
-    damierChanged();
 }
 
 bool damier::possible_left(){
@@ -197,8 +211,10 @@ void damier::gotoleft(){
                 }
             }
         }
-        //damierChanged();
         random();    //enfin on fait réapparaitre un 2
+        n+=1;
+        sauve();
+        damierChanged();
     }
 
 }
@@ -230,8 +246,10 @@ void damier::gotoright(){
                 }
             }
         }
-        //damierChanged();
         random();    //enfin on fait réapparaitre un 2
+        n+=1;
+        sauve();
+        damierChanged();
     }
 }
 
@@ -263,8 +281,10 @@ void damier::gotoup(){
                }
            }
        }
-       //damierChanged();
        random();    //enfin on fait réapparaitre un 2
+       n+=1;
+       sauve();
+       damierChanged();
    }
 }
 
@@ -295,8 +315,10 @@ void damier::gotodown(){
                 }
             }
         }
-        //damierChanged();
         random();    //enfin on fait réapparaitre un 2
+        n+=1;
+        sauve();
+        damierChanged();
     }
 }
 
@@ -317,14 +339,16 @@ string damier::color(int v){
     if (v==16384) return "#2100d8";
     if (v==65536) return "#020097";
     if (v==131072) return "#36384b";
-    else return "#c4c4c4";              //cas valeur=0 et erreurs éventuelles
+    else return "#ffffff";              //cas valeur=0 et erreurs éventuelles
 }
 
 void damier::nouvellepartie(){
     init(0);
     score = 0;
+    n=0;
     random();
     random();
+    sauve();
 }
 
 int damier::readFinDePartie(){
@@ -468,6 +492,10 @@ QString damier::readDamier16(){
 
 QString damier::readScore(){
     return QString::number(score);
+}
+
+QString damier::readTour(){
+    return QString::number(n);
 }
 
 QString damier::readDamier1col(){
